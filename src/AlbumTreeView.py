@@ -26,6 +26,8 @@ class AlbumTreeView():
         #Define scrollable window to hold the treeview and make it scrollable
         self.scrollable_tree_view = Gtk.ScrolledWindow()
         self.scrollable_tree_view.add(self.tree_view)
+
+        self.scrollable_tree_view.set_size_request(500, -1)
     #accepts list of albums and populates treeview
     def populate(self,album_list):
         for album in album_list:
