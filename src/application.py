@@ -3,8 +3,8 @@ import sys
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from gi.repository import GLib
-from mp import MpdClient
-from AlbumTreeView import AlbumTreeView
+from mpc import MpdClient
+from album_view import AlbumTreeView
 from playback_queue import PlaybackQueue
 
 class Application(Gtk.Application):
