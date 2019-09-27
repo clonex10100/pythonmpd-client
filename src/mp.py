@@ -35,6 +35,7 @@ class MpdClient():
 
     def link_queue(self, playback_queue):
         self.playback_queue = playback_queue
+
     @mpd_client_call
     def quit(self):
         self.client.close()
@@ -45,6 +46,7 @@ class MpdClient():
     @mpd_client_call
     def play(self):
         self.client.pause(0)
+
     @mpd_client_call
     def pause(self):
         self.client.pause(1)
@@ -77,9 +79,15 @@ class MpdClient():
     @mpd_client_call
     def current_song(self):
         return Song(self.client.currentsong())
-    #@mpd_client_call
-    #def current_song_index(self):
-    #    return list_queue.get_index(
+
+    @mpd_client_call
+    def current_song_index(self):
+        print(self.list_queue())
+        current_song = self.current_song()
+        j = 0
+        for i in self.list_queue():
+            if i == current_song: return j
+            j += 1
 
     #Just for repl tests, TODO remove
     @mpd_client_call

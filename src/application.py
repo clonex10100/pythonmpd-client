@@ -41,11 +41,14 @@ class AppWindow(Gtk.ApplicationWindow):
         #image2.set_from_file("test.png")
 
         pane.get_cont1().add(album_list.get_view())
-        pane.get_cont2().add(playback_queue.get_view())
-        #pane2.get_cont1().add(button)
-        #pane2.get_cont2().add(image)
-        #pane2.set_pos(100)
+        #pane.get_cont2().add(playback_queue.get_view())
+        
+        pane2 = VertPane(pane.get_cont2())
+        pane2.get_cont1().add(playback_queue.get_view())
+        pane2.get_cont2().add(play_pause)
+
         pane.add()
+        pane2.add()
         GLib.timeout_add(500, playback_queue.update_current_song)
         #Glib.MainLoop().run()
 
